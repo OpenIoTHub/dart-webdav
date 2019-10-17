@@ -43,7 +43,7 @@ List<FileInfo> treeFromWevDavXml(String xmlStr) {
             .single
             .text;
       }catch(e){
-        prop = "";
+        prop = null;
       }
       try{
         contentType = prop.single
@@ -51,12 +51,12 @@ List<FileInfo> treeFromWevDavXml(String xmlStr) {
             .single
             .text;
       }catch(e){
-        contentType = "";
+        contentType = null;
       }
     }catch(e){
-      path = "";
-      displayName = "";
-      contentType = "";
+      path = null;
+      displayName = null;
+      contentType = null;
     }
     // Add the just found file to the tree
     tree.add(new FileInfo(path, displayName, contentType));
