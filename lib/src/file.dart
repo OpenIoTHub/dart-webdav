@@ -58,7 +58,7 @@ List<FileInfo> treeFromWevDavXml(String xmlStr, [String remotePath]) {
       displayName = null;
       contentType = null;
     }
-    if(path != null && displayName != null && path != remotePath){
+    if(path != null && displayName != null && displayName != "" && path != remotePath){
       // Add the just found file to the tree
       tree.add(new FileInfo(path, displayName, contentType));
     }
