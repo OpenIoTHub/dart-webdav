@@ -15,7 +15,7 @@ class FileInfo {
   }
 }
 
-List<FileInfo> treeFromWevDavXml(String xmlStr) {
+List<FileInfo> treeFromWevDavXml(String xmlStr, [String remotePath]) {
   var path;
   var prop;
   var displayName;
@@ -58,8 +58,10 @@ List<FileInfo> treeFromWevDavXml(String xmlStr) {
       displayName = null;
       contentType = null;
     }
-    // Add the just found file to the tree
-    tree.add(new FileInfo(path, displayName, contentType));
+    if(path != null && displayName != null && path != remotePath){
+      // Add the just found file to the tree
+      tree.add(new FileInfo(path, displayName, contentType));
+    }
   });
   // Return the tree
   return tree;

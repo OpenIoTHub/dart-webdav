@@ -202,6 +202,6 @@ class Client {
     if (response.statusCode == 301) {
       return this.ls(response.headers.value('location'));
     }
-    return treeFromWevDavXml(await response.transform(utf8.decoder).join());
+    return treeFromWevDavXml(await response.transform(utf8.decoder).join(),remotePath);
   }
 }
